@@ -8,9 +8,14 @@ The dataset consists of various customer demographics, vehicle information, and 
 * **Numerical Columns:** `Age`, `Annual_Premium`, `Vintage`
 * **Categorical Columns:** `Gender`, `Driving_License`, `Region_Code`, `Previously_Insured`, `Vehicle_Age`, `Vehicle_Damage`, `Policy_Sales_Channel`
 * **Target Variable:** `Response` (1: Customer is interested, 0: Customer is not interested)
+  <br>
+  ![Target Distribution](images/target_distribution.png)
+  *The target variable is highly imbalanced, with only ~12% of customers interested in vehicle insurance.*
 
 ## Key Features
 * **Exploratory Data Analysis (EDA):** Visualized feature distributions and analyzed the relationship between categorical/numerical features and the target variable.
+  <br>
+  ![Correlation Heatmap](images/correlation_heatmap.png)
 * **Data Preprocessing & Encoding:** 
   * **Missing Values & Duplicates:** Verified data integrity (no missing values were found) and dropped the irrelevant `id` column.
   * **Categorical Encoding:** Applied `LabelEncoder` for binary variables (`Gender`, `Vehicle_Damage`) and mapped `Vehicle_Age` manually to preserve its ordinal nature (`< 1 Year`: 0, `1-2 Year`: 1, `> 2 Years`: 2).
@@ -28,9 +33,17 @@ The dataset consists of various customer demographics, vehicle information, and 
 ## Evaluation & Results
 Due to the highly imbalanced nature of the dataset (~12% positive class), traditional Accuracy is heavily misleading and not a reliable metric. Instead, models were evaluated and compared primarily based on **ROC-AUC**, **F1-Score**, Precision, and Recall.
 
+| Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
+|-------|----------|-----------|--------|----------|---------|
+| **XGBoost** | 0.7129 | 0.2882 | 0.9135 | 0.4382 | **0.8575** |
+| **Random Forest** | 0.6989 | 0.2804 | 0.9302 | 0.4310 | 0.8559 |
+| **Logistic Regression** | 0.6402 | 0.2511 | 0.9763 | 0.3995 | 0.8343 |
+
+![ROC-AUC Comparison](images/roc_auc_comparison.png)
+
 **Results Summary:**
 * **XGBoost** performed the best out of the three models, effectively capturing complex non-linear relationships and achieving the highest ROC-AUC score.
-* The explicit handling of class imbalances drastically improved the F1-Score across all models compared to default unweighted implementations.
+* The explicit handling of class imbalances drastically improved the Recall and F1-Score across all models compared to default unweighted implementations, ensuring the business doesn't miss out on potential cross-sell customers.
 
 ## How to Run
 1. Clone the repository.
