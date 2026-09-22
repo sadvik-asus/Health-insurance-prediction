@@ -3,6 +3,12 @@
 ## Overview
 This repository contains an end-to-end data science pipeline that predicts whether health insurance customers will be interested in purchasing vehicle insurance. The goal is to build an accurate predictive model that helps the insurance company target the right customers, optimizing their cross-selling strategy and maximizing revenue.
 
+## Dataset Details
+The dataset consists of various customer demographics, vehicle information, and policy details.
+* **Numerical Columns:** `Age`, `Annual_Premium`, `Vintage`
+* **Categorical Columns:** `Gender`, `Driving_License`, `Region_Code`, `Previously_Insured`, `Vehicle_Age`, `Vehicle_Damage`, `Policy_Sales_Channel`
+* **Target Variable:** `Response` (1: Customer is interested, 0: Customer is not interested)
+
 ## Key Features
 * **Exploratory Data Analysis (EDA):** Visualized feature distributions and analyzed the relationship between categorical/numerical features and the target variable.
 * **Data Preprocessing:** 
