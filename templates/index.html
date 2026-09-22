@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Insurance Prediction</title>
+    <!-- Google Fonts as used in the theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">Health<span>.AI</span></div>
+      <nav>
+        <a href="#">Predict</a>
+        <a href="#about">About</a>
+        <button class="theme-toggle" id="theme-btn">☼</button>
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-small">AI-POWERED PREDICTIONS</div>
+      <h1>Predict <em>Vehicle</em><br> Insurance Interest</h1>
+      <p>Enter customer details below to predict the likelihood of them purchasing vehicle insurance using our advanced machine learning models.</p>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+      <form id="prediction-form" class="glass-panel">
+        
+        <div class="form-grid">
+          <div class="input-group">
+            <label for="Age">Age</label>
+            <input type="number" id="Age" name="Age" min="18" max="100" value="30" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="Gender">Gender</label>
+            <select id="Gender" name="Gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="Driving_License">Driving License</label>
+            <select id="Driving_License" name="Driving_License">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="Region_Code">Region Code</label>
+            <input type="number" id="Region_Code" name="Region_Code" value="28.0" required>
+          </div>
+
+          <div class="input-group">
+            <label for="Previously_Insured">Previously Insured</label>
+            <select id="Previously_Insured" name="Previously_Insured">
+              <option value="1">Yes</option>
+              <option value="0" selected>No</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="Vehicle_Age">Vehicle Age</label>
+            <select id="Vehicle_Age" name="Vehicle_Age">
+              <option value="< 1 Year">&lt; 1 Year</option>
+              <option value="1-2 Year" selected>1-2 Year</option>
+              <option value="> 2 Years">&gt; 2 Years</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="Vehicle_Damage">Vehicle Damage</label>
+            <select id="Vehicle_Damage" name="Vehicle_Damage">
+              <option value="Yes" selected>Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="Annual_Premium">Annual Premium ($)</label>
+            <input type="number" id="Annual_Premium" name="Annual_Premium" value="30000" step="100" required>
+          </div>
+
+          <div class="input-group">
+            <label for="Policy_Sales_Channel">Sales Channel Code</label>
+            <input type="number" id="Policy_Sales_Channel" name="Policy_Sales_Channel" value="124" required>
+          </div>
+
+          <div class="input-group">
+            <label for="Vintage">Vintage (Days)</label>
+            <input type="number" id="Vintage" name="Vintage" value="150" required>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <span>Predict Outcome</span>
+          <div class="spinner" id="spinner" style="display: none;"></div>
+        </button>
+      </form>
+
+      <!-- Result Panel -->
+      <div id="result-panel" class="result-panel hidden">
+        <h3 id="result-title">Analyzing...</h3>
+        <p id="result-desc"></p>
+        <div class="prob-bar-container">
+          <div class="prob-bar" id="prob-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="about-content glass-panel">
+        <div class="about-text">
+          <div class="hero-small">DEVELOPER</div>
+          <h2>V. Sadvik <em>Kumar</em></h2>
+          <p>AI/ML Engineer &amp; Final-year CSE (AI/ML) student building where machine learning meets infrastructure.</p>
+          <ul class="focus-list">
+            <li>🕸️ In-Network ML</li>
+            <li>🛡️ Behavioral Security</li>
+            <li>📚 Applied RAG</li>
+            <li>🌐 Federated Learning</li>
+          </ul>
+          <div class="social-links">
+            <a href="https://sadvik-asus.github.io/Portfolio/" target="_blank">Portfolio</a>
+            <a href="https://www.linkedin.com/in/sadvikkumar" target="_blank">LinkedIn</a>
+            <a href="https://github.com/sadvik-asus" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <script src="/static/script.js"></script>
+  </body>
+</html>
