@@ -16,17 +16,21 @@ The dataset consists of various customer demographics, vehicle information, and 
   * **Categorical Encoding:** Applied `LabelEncoder` for binary variables (`Gender`, `Vehicle_Damage`) and mapped `Vehicle_Age` manually to preserve its ordinal nature (`< 1 Year`: 0, `1-2 Year`: 1, `> 2 Years`: 2).
   * **Feature Scaling:** Applied targeted Feature Scaling (`StandardScaler`) exclusively to continuous numerical columns (`Age`, `Annual_Premium`, `Vintage`) to prevent distortion of encoded categorical variables.
   * **Data Subsetting:** Utilized 100% of the dataset for training to maximize information retention instead of downsampling.
-* **Machine Learning Models:** 
-  * Trained and evaluated **Logistic Regression**, **Random Forest**, and **XGBoost**.
-  * Handled imbalanced classes dynamically using `class_weight='balanced'` and `scale_pos_weight`.
-  * Hyperparameter tuning applied to ensemble models to extract maximum predictive power.
+* **Machine Learning Models & Hyperparameter Tuning:** 
+  * **Logistic Regression:** Used as a baseline model, trained with `class_weight='balanced'`.
+  * **Random Forest Classifier:** An ensemble tree model, tuned with `n_estimators=200`, `max_depth=12`, and `class_weight='balanced'` to prevent overfitting and handle class distribution.
+  * **XGBoost Classifier:** A powerful gradient boosting model, tuned with `learning_rate=0.1`, `n_estimators=200`, `max_depth=6`. The exact positive class ratio was calculated and passed to `scale_pos_weight` to perfectly handle the imbalanced labels.
 
 ## Project Structure
 * `health_insurance_project.ipynb`: A Jupyter Notebook containing step-by-step code, documentation, and visualizations for the entire ML pipeline.
 * `health_insurance_project.py`: A streamlined Python script of the end-to-end pipeline.
 
-## Evaluation
-Due to the highly imbalanced nature of the dataset, traditional Accuracy is not a reliable metric. The models in this project are evaluated and compared primarily based on **ROC-AUC** and **F1-Score**.
+## Evaluation & Results
+Due to the highly imbalanced nature of the dataset (~12% positive class), traditional Accuracy is heavily misleading and not a reliable metric. Instead, models were evaluated and compared primarily based on **ROC-AUC**, **F1-Score**, Precision, and Recall.
+
+**Results Summary:**
+* **XGBoost** performed the best out of the three models, effectively capturing complex non-linear relationships and achieving the highest ROC-AUC score.
+* The explicit handling of class imbalances drastically improved the F1-Score across all models compared to default unweighted implementations.
 
 ## How to Run
 1. Clone the repository.
