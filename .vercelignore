@@ -1,0 +1,6 @@
+*.csv
+*.ipynb
+train_and_save_model.py
+.git
+.gitignore
+README.md
