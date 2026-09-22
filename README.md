@@ -47,7 +47,13 @@ This dataset is collected from a Health Insurance company trying to predict whet
 * `health_insurance_project.py`: A streamlined Python script of the end-to-end pipeline.
 
 ## Evaluation & Results
-Due to the highly imbalanced nature of the dataset (~12% positive class), traditional Accuracy is heavily misleading and not a reliable metric. Instead, models were evaluated and compared primarily based on **ROC-AUC**, **F1-Score**, Precision, and Recall.
+Because only ~12% of the customers in this dataset are actually interested in vehicle insurance, the classes are highly imbalanced. In this scenario, a model could simply predict "Not Interested" for everyone and still achieve 88% Accuracy. Therefore, traditional Accuracy is heavily misleading. 
+
+Instead, the models were evaluated on the following robust metrics:
+* **ROC-AUC:** Measures the model's ability to distinguish between interested and non-interested customers across all classification thresholds. This was our primary metric for overall performance.
+* **Recall (Sensitivity):** Out of all the customers who *were* actually interested, how many did the model correctly identify? This is critical because the business wants to ensure they don't miss out on potential cross-sell opportunities.
+* **Precision:** Out of all the customers the model *predicted* were interested, how many were actually interested?
+* **F1-Score:** The harmonic mean of Precision and Recall, providing a single metric that balances both.
 
 | Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
 |-------|----------|-----------|--------|----------|---------|
