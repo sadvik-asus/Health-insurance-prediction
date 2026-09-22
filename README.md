@@ -11,9 +11,11 @@ The dataset consists of various customer demographics, vehicle information, and 
 
 ## Key Features
 * **Exploratory Data Analysis (EDA):** Visualized feature distributions and analyzed the relationship between categorical/numerical features and the target variable.
-* **Data Preprocessing:** 
-  * Addressed severe class imbalance by utilizing the full dataset.
-  * Preserved categorical variables while applying targeted Feature Scaling (StandardScaler) exclusively to continuous numerical columns (Age, Annual_Premium, Vintage).
+* **Data Preprocessing & Encoding:** 
+  * **Missing Values & Duplicates:** Verified data integrity (no missing values were found) and dropped the irrelevant `id` column.
+  * **Categorical Encoding:** Applied `LabelEncoder` for binary variables (`Gender`, `Vehicle_Damage`) and mapped `Vehicle_Age` manually to preserve its ordinal nature (`< 1 Year`: 0, `1-2 Year`: 1, `> 2 Years`: 2).
+  * **Feature Scaling:** Applied targeted Feature Scaling (`StandardScaler`) exclusively to continuous numerical columns (`Age`, `Annual_Premium`, `Vintage`) to prevent distortion of encoded categorical variables.
+  * **Data Subsetting:** Utilized 100% of the dataset for training to maximize information retention instead of downsampling.
 * **Machine Learning Models:** 
   * Trained and evaluated **Logistic Regression**, **Random Forest**, and **XGBoost**.
   * Handled imbalanced classes dynamically using `class_weight='balanced'` and `scale_pos_weight`.
