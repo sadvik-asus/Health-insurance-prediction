@@ -3,11 +3,27 @@
 ## Overview
 This repository contains an end-to-end data science pipeline that predicts whether health insurance customers will be interested in purchasing vehicle insurance. The goal is to build an accurate predictive model that helps the insurance company target the right customers, optimizing their cross-selling strategy and maximizing revenue.
 
-## Dataset Details
-The dataset consists of various customer demographics, vehicle information, and policy details.
-* **Numerical Columns:** `Age`, `Annual_Premium`, `Vintage`
-* **Categorical Columns:** `Gender`, `Driving_License`, `Region_Code`, `Previously_Insured`, `Vehicle_Age`, `Vehicle_Damage`, `Policy_Sales_Channel`
-* **Target Variable:** `Response` (1: Customer is interested, 0: Customer is not interested)
+## Dataset & Feature Details
+This dataset is collected from a Health Insurance company trying to predict whether their past customers would be interested in purchasing a new Vehicle Insurance policy from them. 
+
+**Customer Demographics:**
+* **`Age`**: Age of the customer.
+* **`Gender`**: Gender of the customer (Male / Female).
+* **`Region_Code`**: Unique code for the region of the customer.
+
+**Vehicle Information:**
+* **`Driving_License`**: 1 if the customer has a valid license, 0 otherwise.
+* **`Vehicle_Age`**: Age of the vehicle (`< 1 Year`, `1-2 Year`, `> 2 Years`).
+* **`Vehicle_Damage`**: Yes if the customer's vehicle was damaged in the past, No otherwise.
+
+**Policy Details:**
+* **`Previously_Insured`**: 1 if the customer already has vehicle insurance, 0 otherwise.
+* **`Annual_Premium`**: The amount the customer pays for their health insurance premium.
+* **`Policy_Sales_Channel`**: Anonymized code for the channel used to reach the customer (e.g., mail, phone, agent).
+* **`Vintage`**: Number of days the customer has been associated with the company.
+
+**Target Variable:**
+* **`Response`**: The prediction target. 1 means the customer is interested in vehicle insurance, 0 means they are not.
   <br>
   ![Target Distribution](images/target_distribution.png)
   *The target variable is highly imbalanced, with only ~12% of customers interested in vehicle insurance.*
